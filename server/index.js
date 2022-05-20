@@ -11,7 +11,9 @@ app.use(cors());
 // Endpoints
 
 app.get(`/api`, ctrl.welcome);
-app.get(`/api/records`, ctrl.topFiveRecords);
+app.get(`/api/records`, ctrl.getTopFiveRecords);
+
+app.post(`/api/records`, ctrl.addUserScore);
 
 const { PORT } = process.env;
 

@@ -1,5 +1,6 @@
 import useGameManagement from "../utils/useGameManagement";
 import Dice from "./Dice";
+import GamerForm from "./GamerForm";
 
 function Tenzies(props) {
   const {
@@ -15,7 +16,9 @@ function Tenzies(props) {
     correctDice
   } = useGameManagement(props);
 
-  return (
+  return gameIsWon ? (
+    <GamerForm playAgain={playAgain} gameClock={gameClock} />
+  ) : (
     <>
       <div className="dice-container">
         {numbOfDice.map((ele) => (
@@ -31,11 +34,8 @@ function Tenzies(props) {
         ))}
       </div>
       <span className="game-clock">{gameClock}</span>
-      <button
-        onClick={gameIsWon ? playAgain : handleRoll}
-        className="roll-button"
-      >
-        {gameIsWon ? `Play Again!` : `Roll`}
+      <button onClick={handleRoll} className="roll-button">
+        Roll
       </button>
     </>
   );

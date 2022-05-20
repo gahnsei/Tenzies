@@ -15,7 +15,7 @@ const sequelize = new Sequelize(DATABASE_URL, {
 
 const welcome = (req, res) => res.sendStatus(200);
 
-const topFiveRecords = (req, res) => {
+const getTopFiveRecords = (req, res) => {
   sequelize
     .query(
       `
@@ -28,7 +28,24 @@ const topFiveRecords = (req, res) => {
     .catch((err) => res.status(400).send(err));
 };
 
+const addUserScore = (req, res) => {
+  const { userInfo } = req.body;
+
+  sequelize
+    .query(
+      `
+  INSERT INTO records
+  (name, run_time)
+  VALUES 
+  ('${userInfo.name}', '${userInfo.runTime}');
+  `
+    )
+    .then(() => res.sendStatus(200))
+    .catch((err) => res.status(400).send(err));
+};
+
 module.exports = {
   welcome,
-  topFiveRecords
+  getTopFiveRecords,
+  addUserScore
 };
