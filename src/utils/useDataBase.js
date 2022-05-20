@@ -1,20 +1,24 @@
-import { useState, useEffect } from "React";
+import { useState, useEffect } from "react";
 
 const axios = require(`axios`);
 
-const BASE_URL = `https://localhost:4444/api`;
+const BASE_URL = `http://localhost:4444/api`;
 
-const useDataBase = async (url) => {
-  const [data, setData] = useState({});
+const useDataBase = (url) => {
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
       .get(BASE_URL + url)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
-  });
+  }, [url]);
 
-  console.log(data);
+  const addScore = (body) => {
+    axios.post(BASE_URL + `/records`, body);
+  };
+
+  return { data, addScore };
 };
 
 export default useDataBase;

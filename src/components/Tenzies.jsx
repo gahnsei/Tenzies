@@ -13,11 +13,12 @@ function Tenzies(props) {
     numberToMatch,
     setNumberToMatch,
     gameIsWon,
-    correctDice
+    correctDice,
+    time
   } = useGameManagement(props);
 
   return gameIsWon ? (
-    <GamerForm playAgain={playAgain} gameClock={gameClock} />
+    <GamerForm playAgain={playAgain} gameClock={gameClock} time={time} />
   ) : (
     <>
       <div className="dice-container">

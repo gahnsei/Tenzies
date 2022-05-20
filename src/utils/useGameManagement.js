@@ -66,7 +66,8 @@ function useGameManagement(props) {
     numberToMatch,
     setNumberToMatch,
     gameIsWon,
-    correctDice
+    correctDice,
+    time
   };
 }
 

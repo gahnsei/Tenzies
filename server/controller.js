@@ -29,7 +29,7 @@ const getTopFiveRecords = (req, res) => {
 };
 
 const addUserScore = (req, res) => {
-  const { userInfo } = req.body;
+  const { name, runTime } = req.body;
 
   sequelize
     .query(
@@ -37,7 +37,7 @@ const addUserScore = (req, res) => {
   INSERT INTO records
   (name, run_time)
   VALUES 
-  ('${userInfo.name}', '${userInfo.runTime}');
+  ('${name}', '${runTime}');
   `
     )
     .then(() => res.sendStatus(200))

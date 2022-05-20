@@ -109,6 +109,13 @@ h1 {
   align-items: center;
 }
 
+.form-label {
+  font-family: "Inter", sans-serif;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .input-div {
   position: relative;
   margin-bottom: 2rem;
@@ -120,6 +127,11 @@ h1 {
   left: 1rem;
   font-family: "Karla", sans-serif;
   font-size: 0.75rem;
+}
+
+.error {
+  color: red;
+  margin-left: 1rem;
 }
 
 .name-input {
@@ -143,4 +155,41 @@ h1 {
 .submit-button {
   font-size: 1rem;
   background-color: #59e391;
+}
+
+.leaderboard-label {
+  font-family: "Karla", sans-serif;
+}
+
+.leaderboard {
+  background-color: white;
+  box-shadow: 0 0.15em 0.2em rgba(0, 0, 0, 0.164);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.record {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  color: rgba(0, 0, 0, 0.515);
+  padding-block: 0.75rem;
+  border-bottom: 0.02rem solid rgba(0, 0, 0, 0.127);
+  font-size: 1.25rem;
+}
+
+.record:last-child {
+  border: none;
+}
+
+.record span:first-child {
+  margin-right: 1rem;
+}
+
+.record span:nth-child(2) {
+  margin-right: 5rem;
+}
+
+.record span:last-child {
+  margin-left: auto;
 }
