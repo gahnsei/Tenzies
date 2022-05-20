@@ -3,7 +3,7 @@ import useDataBase from "../utils/useDataBase";
 import useGamerForm from "../utils/useGamerForm";
 
 function GamerForm(props) {
-  const { handleRoll, gameClock, time } = props;
+  const { playAgain, gameClock, time } = props;
   const { addScore } = useDataBase(``);
   const { input, error, submitScore, handleInput } = useGamerForm(
     time,
@@ -35,7 +35,7 @@ function GamerForm(props) {
           Add To Leaderboard
         </button>
       </form>
-      <button onClick={handleRoll} className="roll-button">
+      <button onClick={playAgain} className="roll-button">
         Play Again
       </button>
     </>
