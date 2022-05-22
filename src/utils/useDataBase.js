@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 const axios = require(`axios`);
 
-const BASE_URL = `http://localhost:4444/api`;
+const BASE_URL = `/api`;
 
 const useDataBase = (url) => {
   const [data, setData] = useState([]);

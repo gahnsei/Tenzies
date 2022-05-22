@@ -32,6 +32,7 @@ const addUserScore = (req, res) => {
   let { name, runTime } = req.body;
 
   name = name.replace(/'/g, `''`);
+
   sequelize
     .query(
       `
