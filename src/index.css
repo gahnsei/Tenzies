@@ -171,6 +171,23 @@ h1 {
   min-width: 25rem;
 }
 
+.loading {
+  font-size: 5rem;
+  margin-bottom: 5rem;
+  color: rgba(0, 0, 0, 0.434);
+
+  animation-name: loading;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+  100% {
+    transform: rotate(350deg);
+  }
+}
+
 .record {
   display: flex;
   font-family: "Inter", sans-serif;
