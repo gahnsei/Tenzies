@@ -1,6 +1,7 @@
 import useGameManagement from "../utils/useGameManagement";
 import Dice from "./Dice";
 import GamerForm from "./GamerForm";
+import Countdown from "./Countdown";
 
 function Tenzies(props) {
   const {
@@ -14,12 +15,20 @@ function Tenzies(props) {
     setNumberToMatch,
     gameIsWon,
     correctDice,
-    time
+    time,
+    countdown,
+    startGame
   } = useGameManagement(props);
 
-  return gameIsWon ? (
-    <GamerForm playAgain={playAgain} gameClock={gameClock} time={time} />
-  ) : (
+  if (!startGame) return <Countdown countdown={countdown} />;
+
+  if (gameIsWon) {
+    return (
+      <GamerForm playAgain={playAgain} gameClock={gameClock} time={time} />
+    );
+  }
+
+  return (
     <>
       <div className="dice-container">
         {numbOfDice.map((ele) => (

@@ -9,6 +9,7 @@ function useGameManagement(props) {
     second: 0,
     minute: 0
   });
+  const [countdown, setCountdown] = useState(3);
 
   const gameIsWon = correctDice.length === 10;
   const { playAgain } = props;
@@ -16,7 +17,17 @@ function useGameManagement(props) {
   const numbOfDice = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   useEffect(() => {
-    if (!gameIsWon) {
+    if (countdown > 0) {
+      setTimeout(() => {
+        setCountdown((prev) => prev - 1);
+      }, 1000);
+    }
+  }, [countdown]);
+
+  const startGame = countdown <= 0;
+
+  useEffect(() => {
+    if (!gameIsWon && startGame) {
       setTimeout(() => {
         setTime((prev) =>
           prev.mileSecond === 59
@@ -27,7 +38,7 @@ function useGameManagement(props) {
         );
       }, 10);
     }
-  }, [time.mileSecond]);
+  }, [time.mileSecond, startGame]);
 
   const handleClick = (numb, id) => {
     if (!numberToMatch || correctDice.length === 0) {
@@ -67,7 +78,9 @@ function useGameManagement(props) {
     setNumberToMatch,
     gameIsWon,
     correctDice,
-    time
+    time,
+    countdown,
+    startGame
   };
 }
 
