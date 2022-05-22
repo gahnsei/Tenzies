@@ -29,8 +29,9 @@ const getTopFiveRecords = (req, res) => {
 };
 
 const addUserScore = (req, res) => {
-  const { name, runTime } = req.body;
+  let { name, runTime } = req.body;
 
+  name = name.replace(/'/g, `''`);
   sequelize
     .query(
       `
