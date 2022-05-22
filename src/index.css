@@ -215,6 +215,10 @@ h1 {
   margin-left: auto;
 }
 
+.crown {
+  color: #ffd700;
+}
+
 .countdown {
   font-size: 5rem;
   font-family: "Inter", sans-serif;

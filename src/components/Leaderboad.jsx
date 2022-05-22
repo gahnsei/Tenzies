@@ -21,7 +21,7 @@ function Leaderboad(props) {
             <div className="record" key={score.name + score.run_time}>
               <span>
                 {index === 0 ? (
-                  <i className="fa-solid fa-crown"></i>
+                  <i className="fa-solid fa-crown crown"></i>
                 ) : (
                   index + 1
                 )}
