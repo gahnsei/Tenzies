@@ -5,8 +5,13 @@ const Dice = (props) => {
 
   useEffect(() => {
     if (!isCorrect) {
-      const rand = Math.floor(Math.random() * 6) + 1;
-      setNumb(rand);
+      setNumb((prev) => {
+        let rand = Math.floor(Math.random() * 6) + 1;
+        while (rand === prev) {
+          rand = Math.floor(Math.random() * 6) + 1;
+        }
+        return rand;
+      });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRolled]);
